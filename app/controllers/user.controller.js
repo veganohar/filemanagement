@@ -1,7 +1,7 @@
 const db = require('../models');
 const bycript = require('bcrypt');
 const User = db.user;
-
+var jwt = require("jsonwebtoken");
 exports.getAllUsers = (req,res) =>{
     User.find((err,users)=>{
         if (err){
@@ -53,9 +53,15 @@ exports.registerUser = async (req,res) =>{
                 res.status(401).send("Invalid Password");
                 return;
             }
+                let token = jwt.sign({userId:user._id},"fimemanagement",{expiresIn:3600});
             res.send({
-                status:200,
-                message: "Successfully Logged In"
+                status:200, 
+                message: "Successfully Logged In",
+                accessToken:token,
+                user:{
+                    username:user.username,
+                    _id:user._id
+                }
             });
         })
     }
