@@ -5,7 +5,11 @@ const db = require("./app/models");
 const dbconfig = require("./app/config/db.config");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-
+const fs = require("fs");
+var dir = "./uploads";
+if (!fs.existsSync(dir)){
+  fs.mkdirSync(dir);
+}
 app.get('/', (req, res) => {
   res.send('Hello World!');
 })
@@ -28,3 +32,4 @@ db.mongoose.connect(`mongodb://${dbconfig.HOST}:${dbconfig.port}/${dbconfig.DB}`
 })
 
 require('./app/routes/user.routes')(app);
+require('./app/routes/video.routes')(app);
