@@ -36,6 +36,7 @@ exports.registerUser = async (req,res) =>{
 
     exports.signin = (req,res)=>{
         let creds = req.body;
+        console.log(creds);
         User.findOne({username:creds.username},(err,user)=>{
             if (err){
                 res.status(500).send({message:err});

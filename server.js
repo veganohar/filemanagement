@@ -20,7 +20,7 @@ app.listen(port, () => {
 
 app.use(bodyParser.json({limit:"50mb"}));
 app.use(bodyParser.urlencoded({extended:true,limit:"50mb"}));
-
+app.use(express.static('uploads'));
 db.mongoose.connect(`mongodb://${dbconfig.HOST}:${dbconfig.port}/${dbconfig.DB}`,{
   useNewUrlParser:true,
   useUnifiedTechnology:true
