@@ -1,5 +1,5 @@
 const controller = require("../controllers/video.controller");
-
+const { usermiddleware } = require("../middlewares");
 module.exports = function (app){
     app.use(function(req,res,next){
         req.header(
@@ -8,7 +8,7 @@ module.exports = function (app){
         )
         next();
     });
-    app.post("/api/videos/saveNewVideo",controller.saveNewVideo);
+    app.post("/api/videos/saveNewVideo",[usermiddleware.verfyToken],controller.saveNewVideo);
     app.get("/api/videos/getAllVideos",controller.getAllVideos);
 
 }

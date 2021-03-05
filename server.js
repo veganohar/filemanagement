@@ -13,11 +13,11 @@ if (!fs.existsSync(dir)){
 app.get('/', (req, res) => {
   res.send('Hello World!');
 })
-
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 })
 
+app.use(cors());
 app.use(bodyParser.json({limit:"50mb"}));
 app.use(bodyParser.urlencoded({extended:true,limit:"50mb"}));
 app.use(express.static('uploads'));

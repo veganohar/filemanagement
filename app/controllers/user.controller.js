@@ -28,7 +28,7 @@ exports.registerUser = async (req,res) =>{
                 return;
             }
             res.send({
-                status:200,
+                status:201,
                 data: resp
             });
         })
