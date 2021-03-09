@@ -51,7 +51,7 @@ exports.registerUser = async (req,res) =>{
                 user.password    
             );
             if(!isValidPw){
-                res.status(401).send("Invalid Password");
+                res.status(401).send({message:"Invalid Password"});
                 return;
             }
                 let token = jwt.sign({userId:user._id},"fimemanagement",{expiresIn:3600});
@@ -61,7 +61,8 @@ exports.registerUser = async (req,res) =>{
                 accessToken:token,
                 user:{
                     username:user.username,
-                    _id:user._id
+                    _id:user._id,
+                    role:user.role
                 }
             });
         })

@@ -4,7 +4,11 @@ const User = mongoose.model(
     'User',
     new mongoose.Schema({
         username:String,
-        password:String      
+        password:String,
+        role:{
+            type:String,
+            default:"user"
+        }    
     })
 );
 
