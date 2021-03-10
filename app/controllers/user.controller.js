@@ -54,7 +54,7 @@ exports.registerUser = async (req,res) =>{
                 res.status(401).send({message:"Invalid Password"});
                 return;
             }
-                let token = jwt.sign({userId:user._id},"fimemanagement",{expiresIn:3600});
+                let token = jwt.sign({userId:user._id,role:user.role},"fimemanagement",{expiresIn:3600});
             res.send({
                 status:200, 
                 message: "Successfully Logged In",

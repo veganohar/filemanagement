@@ -14,5 +14,5 @@ module.exports = {
     multiple : upload.array('videos', 10),
     single : upload.single('video'), 
     none:upload.none(),
-    fields:upload.fields([{name:"image", maxCount:1},{name:"photoid_proof", maxCount:1},{name:"addressid_proof", maxCount:1},{name:"cv", maxCount:1}])
+    fields:upload.fields([{name:"video", maxCount:1},{name:"thumbnail", maxCount:1}])
 }  

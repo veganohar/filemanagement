@@ -17,13 +17,14 @@ exports.getAllVideos = (req, res) => {
 }
 
 exports.saveNewVideo = (req, res) => {
-  multer.single(req, res, (err) => {
+  multer.fields(req, res, (err) => {
     if (err) {
       return res.status(400).send(err);
     }
     let video = new Video();
     video.title = req.body.title;
-    video.video = req.file.filename;
+    video.video = req.files.video[0].filename;
+    video.thumbnail = req.files.thumbnail[0].filename;
     video.save(err, record => {
       if (err) {
         res.status(500).send({ message: err });

@@ -5,6 +5,7 @@ const Video = mongoose.model(
     new mongoose.Schema({
         title:String,
         video:String,
+        thumbnail:String,
         create_on:{
             type:Date,
             default: Date.now
