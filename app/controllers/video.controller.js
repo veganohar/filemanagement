@@ -31,7 +31,7 @@ exports.saveNewVideo = (req, res) => {
         return;
       }
       res.send({
-        status:200,
+        status:201,
         data: record,
         message:"Record created succefully"
     });

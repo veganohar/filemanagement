@@ -9,7 +9,7 @@ var storage = multer.diskStorage({
      cb(null , fname);   
   }
 });
-var upload = multer({ storage: storage,limits: { fileSize: '5mb' } })
+var upload = multer({ storage: storage,limits: { fileSize: '100mb' } })
 module.exports = {  
     multiple : upload.array('videos', 10),
     single : upload.single('video'), 

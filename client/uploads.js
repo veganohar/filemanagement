@@ -16,7 +16,24 @@ function onUpload(e){
     formData.append('title',title);
     formData.append("thumbnail",thumbnail);
     formData.append("video",video);
-    
+    let api = "http://localhost:3000/api/videos/saveNewVideo";
+    let options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': "multipart/form-data; boundary=<calculated when request is sent>",
+            'x-access-token':localStorage.getItem("token")
+        },
+        body: formData,
+    }
+    fetch(api, options).then(response => response.json())
+        .then(data => {
+            if(data.status==201){
+                document.getElementById("vidform").reset();
+                alert("Video Uploaded Successful");
+            }else{
+                alert(data.message);
+            }
+        });
 }
 
 function onFile(e){

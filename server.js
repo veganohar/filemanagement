@@ -20,8 +20,8 @@ app.listen(port, () => {
 })
 
 app.use(cors());
-app.use(bodyParser.json({limit:"50mb"}));
-app.use(bodyParser.urlencoded({extended:true,limit:"50mb"}));
+app.use(bodyParser.json({limit:"100mb"}));
+app.use(bodyParser.urlencoded({limit: '100mb', extended: true, parameterLimit: 1000000}));
 app.use(express.static('uploads'));
 db.mongoose.connect(`mongodb://${dbconfig.HOST}:${dbconfig.port}/${dbconfig.DB}`,{
   useNewUrlParser:true,
