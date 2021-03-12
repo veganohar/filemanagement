@@ -16,11 +16,11 @@ function onUpload(e){
     formData.append('title',title);
     formData.append("thumbnail",thumbnail);
     formData.append("video",video);
+    console.log(formData.get("video"))
     let api = "http://localhost:3000/api/videos/saveNewVideo";
     let options = {
         method: 'POST',
         headers: {
-            'Content-Type': "multipart/form-data; boundary=<calculated when request is sent>",
             'x-access-token':localStorage.getItem("token")
         },
         body: formData,
