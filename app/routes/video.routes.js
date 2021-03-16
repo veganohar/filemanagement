@@ -10,7 +10,7 @@ module.exports = function (app){
     });
     app.post("/api/videos/saveNewVideo",[usermiddleware.verfyToken],controller.saveNewVideo);
     app.get("/api/videos/getAllVideos",controller.getAllVideos);
-
+    app.delete("/api/videos/removeVideo/:vid",[usermiddleware.verfyToken],controller.removeVideo);
 }
 
 
