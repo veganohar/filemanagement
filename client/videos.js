@@ -33,9 +33,22 @@ function getAllVideos() {
         .then(data => {
             if(data.status==200){
                 allVideos = data.data;
+                bindData();
                 console.log(allVideos);
             }else{
                 alert(data.message);
             }
         });
+}
+
+
+function bindData(){
+    let vid_div = document.getElementById("showdiv");
+    allVideos.forEach(e=>{
+        let div = ` <div class="col-3">
+        <p><a href="http://localhost:3000/${e.video}" target="_blank">${e.title}</a></p>
+        <video src="http://localhost:3000/${e.video}"></video>
+    </div>`;
+        vid_div.insertAdjacentHTML("beforeend",div);
+    });
 }
