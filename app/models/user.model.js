@@ -5,6 +5,7 @@ const User = mongoose.model(
     new mongoose.Schema({
         username:String,
         password:String,
+        isActive:Boolean,
         role:{
             type:String,
             default:"user"
