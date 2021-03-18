@@ -43,12 +43,13 @@ function getAllVideos() {
 
 
 function bindData(){
-    let vid_div = document.getElementById("showdiv");
+    let vid_div = document.getElementById("show_videos");
     allVideos.forEach(e=>{
         let div = ` <div class="col-3">
         <p><a href="http://localhost:3000/${e.video}" target="_blank">${e.title}</a></p>
-        <video src="http://localhost:3000/${e.video}"></video>
+        <video src="http://localhost:3000/${e.video}" controls width="100%"></video>
     </div>`;
+
         vid_div.insertAdjacentHTML("beforeend",div);
     });
 }
