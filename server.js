@@ -59,3 +59,4 @@ createAdmin = ()=>{
 
 require('./app/routes/user.routes')(app);
 require('./app/routes/video.routes')(app);
+require('./app/routes/category.routes')(app);

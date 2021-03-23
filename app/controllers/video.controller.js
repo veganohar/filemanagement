@@ -5,7 +5,7 @@ var fs = require('fs');
 
 
 exports.getAllVideos = (req, res) => {
-  Video.find((err,videos)=>{
+  Video.find().populate("category").exec((err,videos)=>{
     if (err){
         res.status(500).send({message:err});
         return;
